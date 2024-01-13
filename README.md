@@ -3,7 +3,9 @@
 ## Install zsh shell in your linux machine
 
 ### fedora
-``` sudo dnf install zsh ```
+```bash
+sudo dnf install zsh
+ ```
 
 You can choose command as per your linux distro
 
