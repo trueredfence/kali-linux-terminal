@@ -1,4 +1,4 @@
-# Kali Linux Termial Theme
+# Kali Linux Terminal Theme
 
 ## Install zsh shell in your linux machine
 
