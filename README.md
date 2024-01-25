@@ -1,5 +1,7 @@
 # Kali Linux Terminal Theme
 
+![Kali Terminal](kali-linux-terminal.png)
+
 ## Install zsh shell in your linux machine
 
 ### fedora
