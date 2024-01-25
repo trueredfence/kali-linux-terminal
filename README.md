@@ -3,11 +3,11 @@
 ## Install zsh shell in your linux machine
 
 ### fedora
+You can choose command as per your linux distro i am using fedora so i am using dnf if you are using ubuntu then you have to apt 
+
 ```bash
 sudo dnf install zsh
  ```
-
-You can choose command as per your linux distro
 
 1. Copy zsh-autosuggestions and zsh-syntax-highlighting into /usr/share folder of your machine
      ```bash
