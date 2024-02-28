@@ -23,4 +23,10 @@ You can choose command as per your linux distro i am using fedora so i am using 
    ```bash
    sudo chmod 755 /usr/shard/zsh-*
    ```
+#### 6. change default shell to zsh
+  ```
+  type -a zsh ## find path to ksh ##
+  chsh -s /bin/zsh ## change bash to ksh ##
+  grep "^${USER}" /etc/passwd ## Verify if changed ##
+  ```
 #### 5. restart your machine.
