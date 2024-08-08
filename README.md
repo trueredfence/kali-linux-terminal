@@ -4,6 +4,11 @@
 
 ## Install zsh shell in your linux machine
 
+### Donwload on machine
+```bash
+wget https://github.com/trueredfence/kalilinuxterminal/archive/refs/heads/main.zip -O /tmp/kalilinuxterminal.zip
+```
+
 ### fedora
 You can choose command as per your linux distro i am using fedora so i am using dnf if you are using ubuntu then you have to apt 
 
@@ -21,7 +26,7 @@ You can choose command as per your linux distro i am using fedora so i am using 
    ```
 #### 4. chagne permisson of zsh-syantax and zsh-autosuggestion to
    ```bash
-   sudo chmod 755 /usr/shard/zsh-*
+   sudo chmod 755 /usr/share/zsh-*
    ```
 #### 6. change default shell to zsh
   ```
