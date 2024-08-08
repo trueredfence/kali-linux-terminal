@@ -7,6 +7,7 @@
 ### Donwload on machine
 ```bash
 wget https://github.com/trueredfence/kalilinuxterminal/archive/refs/heads/main.zip -O /tmp/kalilinuxterminal.zip
+unzip file.zip
 ```
 
 ### fedora
