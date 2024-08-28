@@ -15,10 +15,15 @@ You can choose command as per your linux distro i am using fedora so i am using 
 
 #### 1. Install z shell first
   ```bash
-  sudo dnf install zsh
+  sudo dnf install zsh -y
+   ```
+### OR
+  ```bash
+  sudo yum install zsh -y
    ```
 #### 2. Copy zsh-autosuggestions and zsh-syntax-highlighting into /usr/share folder of your machine
    ```bash
+   cd /tmp/kalilinuxterminal-main
    sudo cp -Rf zsh-* /usr/share
    ```
 #### 3. copy paste .zshrc file in your ~/ [your /home/] folder if already exists replace with this file
