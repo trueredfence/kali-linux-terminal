@@ -21,8 +21,8 @@ export PATH
 # Step 2: Navigate to /tmp/ directory
 cd /tmp/
 
-# Step 3: Download the repository zip file
-echo -e "${YELLOW}Downloading repository...${NC}"
+# Step 3: Download the repository zip file in /tmp location
+echo -e "${YELLOW}Downloading repository zip file in /tmp location ...${NC}"
 wget https://github.com/trueredfence/kalilinuxterminal/archive/refs/heads/main.zip -O /tmp/kalilinuxterminal.zip
 
 # Step 4: Unzip the downloaded file
@@ -53,6 +53,10 @@ ZSHELLPATH=$(type -p zsh)
 echo -e "${YELLOW}Changing the default shell to Zsh...${NC}"
 chsh -s $ZSHELLPATH
 
-# Step 11: Reboot the system
+# Step 11: Remove old files
+echo -e "${YELLOW}Remove old files...${NC}"
+rm -Rf /tmp/kalili*
+
+# Step 12: Reboot the system
 echo -e "${YELLOW}Rebooting the system...${NC}"
 sudo init 6
