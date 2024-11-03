@@ -32,11 +32,11 @@ echo -e "${YELLOW}Installing Zsh...${NC}"
 if command -v apt > /dev/null; then
     sudo apt update && sudo apt install unzip zsh -y
 elif command -v dnf > /dev/null; then
-    sudo dnf update && dnf install unzip zsh -y
+    sudo dnf update && sudo dnf install unzip zsh -y
 elif command -v yum > /dev/null; then
-    sudo yum update && yum install unzip zsh -y
+    sudo yum update && sudo yum install unzip zsh -y
 elif command -v zypper > /dev/null; then
-    sudo zypper update && zypper install unzip zsh -y
+    sudo zypper update && sudo zypper install unzip zsh -y
 else
     echo -e "${RED}Unsupported package manager. Install Zsh manually.${NC}"
     exit 1
