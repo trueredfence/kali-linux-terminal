@@ -1,5 +1,5 @@
 #!/bin/bash
-# Run Script direct from github
+# Copy paste bleow command and logout and login again 
 # bash -c "$(curl -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/trueredfence/kali-linux-terminal/refs/heads/main/install.sh)"
 # Define the PATH environment variable
 PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
