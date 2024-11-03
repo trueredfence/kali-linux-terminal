@@ -1,6 +1,6 @@
 #!/bin/bash
 # Run Script direct from github
-# bash -c "$(curl -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/devtechfusion/shiny/main/cat.sh)"
+# bash -c "$(curl -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/trueredfence/kali-linux-terminal/refs/heads/main/install.sh)"
 # Define the PATH environment variable
 PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
