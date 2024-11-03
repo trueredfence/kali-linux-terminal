@@ -26,25 +26,25 @@ cd /tmp/
 echo -e "${YELLOW}Downloading repository zip file in /tmp location...${NC}"
 wget https://github.com/trueredfence/kalilinuxterminal/archive/refs/heads/main.zip -O /tmp/kalilinuxterminal.zip
 
-# Step 4: Unzip the downloaded file
-echo -e "${YELLOW}Unzipping the file...${NC}"
-unzip kalilinuxterminal.zip
-
-# Step 5: Detect OS and install Zsh
+# Step 4: Detect OS and install Zsh
 echo -e "${YELLOW}Installing Zsh...${NC}"
 
 if command -v apt > /dev/null; then
-    sudo apt update && sudo apt install zsh -y
+    sudo apt update && sudo apt install unzip zsh -y
 elif command -v dnf > /dev/null; then
-    sudo dnf update && dnf install zsh -y
+    sudo dnf update && dnf install unzip zsh -y
 elif command -v yum > /dev/null; then
-    sudo yum update && yum install zsh -y
+    sudo yum update && yum install unzip zsh -y
 elif command -v zypper > /dev/null; then
-    sudo zypper update && zypper install zsh -y
+    sudo zypper update && zypper install unzip zsh -y
 else
     echo -e "${RED}Unsupported package manager. Install Zsh manually.${NC}"
     exit 1
 fi
+
+# Step 5: Unzip the downloaded file
+echo -e "${YELLOW}Unzipping the file...${NC}"
+unzip kalilinuxterminal.zip
 
 # Step 6: Copy Zsh files to the appropriate directory
 echo -e "${YELLOW}Copying Zsh files...${NC}"
