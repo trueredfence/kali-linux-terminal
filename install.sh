@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# Run Script direct from github
+# bash -c "$(curl -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/devtechfusion/shiny/main/cat.sh)"
 # Define the PATH environment variable
 PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
@@ -11,8 +12,8 @@ NC='\033[0m' # No Color
 
 # Banner
 echo -e "${GREEN}=========================================${NC}"
-echo -e "${GREEN}          Kali Linux Terminal            ${NC}"
-echo -e "${GREEN}              trueredfence               ${NC}"
+echo -e "${GREEN}          Linux Terminal Setup           ${NC}"
+echo -e "${GREEN}            trueredfence                 ${NC}"
 echo -e "${GREEN}=========================================${NC}"
 
 # Step 1: Export PATH environment variable
@@ -22,20 +23,32 @@ export PATH
 cd /tmp/
 
 # Step 3: Download the repository zip file in /tmp location
-echo -e "${YELLOW}Downloading repository zip file in /tmp location ...${NC}"
+echo -e "${YELLOW}Downloading repository zip file in /tmp location...${NC}"
 wget https://github.com/trueredfence/kalilinuxterminal/archive/refs/heads/main.zip -O /tmp/kalilinuxterminal.zip
 
 # Step 4: Unzip the downloaded file
 echo -e "${YELLOW}Unzipping the file...${NC}"
 unzip kalilinuxterminal.zip
 
-# Step 5: Install Zsh
+# Step 5: Detect OS and install Zsh
 echo -e "${YELLOW}Installing Zsh...${NC}"
-sudo dnf install zsh -y
+
+if command -v apt > /dev/null; then
+    sudo apt update && sudo apt install zsh -y
+elif command -v dnf > /dev/null; then
+    sudo dnf update && dnf install zsh -y
+elif command -v yum > /dev/null; then
+    sudo yum update && yum install zsh -y
+elif command -v zypper > /dev/null; then
+    sudo zypper update && zypper install zsh -y
+else
+    echo -e "${RED}Unsupported package manager. Install Zsh manually.${NC}"
+    exit 1
+fi
 
 # Step 6: Copy Zsh files to the appropriate directory
 echo -e "${YELLOW}Copying Zsh files...${NC}"
-cd kalilinuxterminal-main
+cd kali-linux-terminal-main
 sudo cp -Rf zsh-* /usr/share
 
 # Step 7: Copy .zshrc to the home directory
@@ -47,16 +60,22 @@ echo -e "${YELLOW}Setting permissions...${NC}"
 sudo chmod 755 /usr/share/zsh-*
 
 # Step 9: Determine the Zsh path
-ZSHELLPATH=$(type -p zsh)
+ZSHELLPATH=$(command -v zsh)
+echo -e "${YELLOW}Getting Z Shell Path $ZSHELLPATH...${NC}"
 
 # Step 10: Change the default shell to Zsh
 echo -e "${YELLOW}Changing the default shell to Zsh...${NC}"
-chsh -s $ZSHELLPATH
+chsh -s "$ZSHELLPATH"
 
 # Step 11: Remove old files
-echo -e "${YELLOW}Remove old files...${NC}"
+echo -e "${YELLOW}Removing old files...${NC}"
 rm -Rf /tmp/kalili*
 
-# Step 12: Reboot the system
-echo -e "${YELLOW}Rebooting the system...${NC}"
-sudo init 6
+# Step 12: Prompt for reboot
+echo -e "${YELLOW}Setup complete. Would you like to reboot now? (y/n)${NC}"
+read -r reboot_choice
+if [[ "$reboot_choice" =~ ^[Yy]$ ]]; then
+    sudo reboot
+else
+    echo -e "${GREEN}Reboot skipped. Changes will take effect on next login.${NC}"
+fi
