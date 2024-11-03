@@ -52,8 +52,12 @@ cd kali-linux-terminal-main
 sudo cp -Rf zsh-* /usr/share
 
 # Step 7: Copy .zshrc to the home directory
-echo -e "${YELLOW}Copying .zshrc...${NC}"
-cp -Rf .zshrc ~/
+for user in $(awk -F: '$3 >= 1000 && $3 < 65534 {print $1}' /etc/passwd); do    
+    echo -e "${YELLOW}Copying .zshrc to home directory of user: $user ...${NC}"
+    # Get the user's home directory
+    user_home=$(eval echo "~$user")
+    cp -Rf .zshrc "$user_home/"
+done
 
 # Step 8: Set correct permissions for Zsh files
 echo -e "${YELLOW}Setting permissions...${NC}"
@@ -64,8 +68,20 @@ ZSHELLPATH=$(command -v zsh)
 echo -e "${YELLOW}Getting Z Shell Path $ZSHELLPATH...${NC}"
 
 # Step 10: Change the default shell to Zsh
-echo -e "${YELLOW}Changing the default shell to Zsh...${NC}"
-chsh -s "$ZSHELLPATH"
+
+for user in $(awk -F: '$3 >= 1000 && $3 < 65534 {print $1}' /etc/passwd); do
+    echo -e "${YELLOW}Changing the default shell to Zsh for user: $user...${NC}"  
+    
+    # Run the chsh command for each user to set their shell to Zsh
+    chsh -s "$ZSHELLPATH" "$user"
+
+    # Verify if the shell change was successful
+    if [ $? -eq 0 ]; then
+        echo -e "${YELLOW}Default shell changed to Zsh for user $user.${NC}"
+    else
+        echo -e "${RED}Failed to change shell for user $user.${NC}"
+    fi
+done
 
 # Step 11: Remove old files
 echo -e "${YELLOW}Removing old files...${NC}"
