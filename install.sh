@@ -58,6 +58,8 @@ for user in $(awk -F: '$3 >= 1000 && $3 < 65534 {print $1}' /etc/passwd); do
     user_home=$(eval echo "~$user")
     cp -Rf .zshrc "$user_home/"
 done
+# For root user
+cp -Rf .zshrc /root/
 
 # Step 8: Set correct permissions for Zsh files
 echo -e "${YELLOW}Setting permissions...${NC}"
@@ -74,6 +76,8 @@ for user in $(awk -F: '$3 >= 1000 && $3 < 65534 {print $1}' /etc/passwd); do
     # Run the chsh command for each user to set their shell to Zsh
     chsh -s "$ZSHELLPATH" "$user"
 done
+# For root
+chsh -s "$ZSHELLPATH"
 
 # Step 11: Remove old files
 echo -e "${YELLOW}Removing old files...${NC}"
