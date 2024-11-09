@@ -32,7 +32,7 @@ echo -e "${YELLOW}Installing Zsh...${NC}"
 if command -v apt > /dev/null; then
     sudo apt install unzip wget curl zsh -y
 elif command -v dnf > /dev/null; then
-    sudo dnf install unzip wget curl zsh -y
+    sudo dnf install unzip wget curl zsh util-linux-user -y
 elif command -v yum > /dev/null; then
     sudo yum install unzip wget curl zsh -y
 elif command -v zypper > /dev/null; then
