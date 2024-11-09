@@ -30,13 +30,13 @@ wget https://github.com/trueredfence/kalilinuxterminal/archive/refs/heads/main.z
 echo -e "${YELLOW}Installing Zsh...${NC}"
 
 if command -v apt > /dev/null; then
-    sudo apt update && sudo apt install unzip zsh -y
+    sudo apt install unzip wget curl zsh -y
 elif command -v dnf > /dev/null; then
-    sudo dnf update && sudo dnf install unzip zsh -y
+    sudo dnf install unzip wget curl zsh -y
 elif command -v yum > /dev/null; then
-    sudo yum update && sudo yum install unzip zsh -y
+    sudo yum install unzip wget curl zsh -y
 elif command -v zypper > /dev/null; then
-    sudo zypper update && sudo zypper install unzip zsh -y
+    sudo zypper installunzip wget curl zsh -y
 else
     echo -e "${RED}Unsupported package manager. Install Zsh manually.${NC}"
     exit 1
