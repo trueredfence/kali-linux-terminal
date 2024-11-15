@@ -14,6 +14,7 @@ NC='\033[0m' # No Color
 echo -e "${GREEN}=========================================${NC}"
 echo -e "${GREEN}          Linux Terminal Setup           ${NC}"
 echo -e "${GREEN}            trueredfence                 ${NC}"
+echo -e "${GREEN}         try this on your risk           ${NC}"
 echo -e "${GREEN}=========================================${NC}"
 
 # Step 1: Export PATH environment variable
@@ -84,10 +85,4 @@ echo -e "${YELLOW}Removing old files...${NC}"
 rm -Rf /tmp/kalili*
 
 # Step 12: Prompt for reboot
-echo -e "${YELLOW}Setup complete. Would you like to reboot now? (y/n)${NC}"
-read -r reboot_choice
-if [[ "$reboot_choice" =~ ^[Yy]$ ]]; then
-    sudo reboot
-else
-    echo -e "${GREEN}Reboot skipped. Changes will take effect on next login.${NC}"
-fi
+echo -e "${YELLOW}To check please logout and login again or reboot the system${NC}"
