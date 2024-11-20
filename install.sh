@@ -23,11 +23,7 @@ export PATH
 # Step 2: Navigate to /tmp/ directory
 cd /tmp/
 
-# Step 3: Download the repository zip file in /tmp location
-echo -e "${YELLOW}Downloading repository zip file in /tmp location...${NC}"
-wget https://github.com/trueredfence/kalilinuxterminal/archive/refs/heads/main.zip -O /tmp/kalilinuxterminal.zip
-
-# Step 4: Detect OS and install Zsh
+# Step 3: Detect OS and install Zsh
 echo -e "${YELLOW}Installing Zsh...${NC}"
 
 if command -v apt > /dev/null; then
@@ -43,6 +39,9 @@ else
     exit 1
 fi
 
+# Step 4: Download the repository zip file in /tmp location
+echo -e "${YELLOW}Downloading repository zip file in /tmp location...${NC}"
+wget https://github.com/trueredfence/kalilinuxterminal/archive/refs/heads/main.zip -O /tmp/kalilinuxterminal.zip
 # Step 5: Unzip the downloaded file
 echo -e "${YELLOW}Unzipping the file...${NC}"
 unzip kalilinuxterminal.zip
