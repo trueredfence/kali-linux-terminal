@@ -4,7 +4,7 @@
 
 ### Single Line Command to get job done 
 ```bash
-bash -c "$(curl -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/trueredfence/kali-linux-terminal/refs/heads/main/install.sh)"
+sudo bash -c "$(curl -H 'Cache-Control: no-cache, no-store' https://raw.githubusercontent.com/trueredfence/kali-linux-terminal/refs/heads/main/install.sh)"
 ```
 
 ## Install zsh shell in your linux machine
